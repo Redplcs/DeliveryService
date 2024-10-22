@@ -3,6 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{56E1C43E-FD9D-4C80-ABCD-9DC00FBBD9A1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OrderFiltering", "OrderFiltering", "{B6393868-5408-472D-BB33-1E473DBBA428}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{BB04B399-3C23-4401-8D7D-E91BB287393C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EffectiveMobile.DeliveryService.OrderFiltering.Domain", "src\OrderFiltering\Domain\src\EffectiveMobile.DeliveryService.OrderFiltering.Domain.csproj", "{8C3E1506-732D-4AE6-9A46-0B4FF778ABCB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EffectiveMobile.DeliveryService.OrderFiltering.Domain.Tests", "src\OrderFiltering\Domain\tests\EffectiveMobile.DeliveryService.OrderFiltering.Domain.Tests.csproj", "{0653EA4A-33BC-4F63-BF34-189BDE1F23D3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -10,5 +20,21 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8C3E1506-732D-4AE6-9A46-0B4FF778ABCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C3E1506-732D-4AE6-9A46-0B4FF778ABCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C3E1506-732D-4AE6-9A46-0B4FF778ABCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C3E1506-732D-4AE6-9A46-0B4FF778ABCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0653EA4A-33BC-4F63-BF34-189BDE1F23D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0653EA4A-33BC-4F63-BF34-189BDE1F23D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0653EA4A-33BC-4F63-BF34-189BDE1F23D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0653EA4A-33BC-4F63-BF34-189BDE1F23D3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B6393868-5408-472D-BB33-1E473DBBA428} = {56E1C43E-FD9D-4C80-ABCD-9DC00FBBD9A1}
+		{BB04B399-3C23-4401-8D7D-E91BB287393C} = {B6393868-5408-472D-BB33-1E473DBBA428}
+		{8C3E1506-732D-4AE6-9A46-0B4FF778ABCB} = {BB04B399-3C23-4401-8D7D-E91BB287393C}
+		{0653EA4A-33BC-4F63-BF34-189BDE1F23D3} = {BB04B399-3C23-4401-8D7D-E91BB287393C}
 	EndGlobalSection
 EndGlobal
