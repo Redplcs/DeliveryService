@@ -2,8 +2,8 @@
 
 public class Order
 {
-	public Guid Id { get; }
+	public OrderId Id { get; }
 	public float Weight { get; }
-	public Guid DeliveryAreaId { get; }
+	public AreaId DeliveryAreaId { get; }
 	public DateTime DeliveryTime { get; }
 }
