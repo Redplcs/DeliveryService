@@ -32,4 +32,16 @@ public class DistrictIdOrderFilterTests
 
 		Assert.False(filtered);
 	}
+
+	[Fact]
+	public void ApplyFilter_NullOrder_ThrowsArgumentNullException()
+	{
+		var filterBy = DistrictId.Create();
+		var filter = new DistrictIdOrderFilter(filterBy);
+
+		Assert.Throws<ArgumentNullException>(paramName: "value", () =>
+		{
+			_ = filter.ApplyFilter(value: null!);
+		});
+	}
 }
