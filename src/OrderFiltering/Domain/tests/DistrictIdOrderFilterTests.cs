@@ -3,26 +3,33 @@
 public class DistrictIdOrderFilterTests
 {
 	[Fact]
-	public void ApplyFilter_OrderIsValid_ReturnsTrue()
+	public void ApplyFilter_OrderFiltered_ReturnsTrue()
 	{
 		var filterBy = DistrictId.Create();
-		var validOrder = Order.Create(OrderId.Create(), 1.0f, filterBy, DateTime.UtcNow);
 		var filter = new DistrictIdOrderFilter(filterBy);
+		var orderId = OrderId.Create();
+		var weight = 1.0f;
+		var deliveryTime = DateTime.UtcNow;
+		var order = Order.Create(orderId, weight, filterBy, deliveryTime);
 
-		bool isValid = filter.ApplyFilter(validOrder);
+		bool filtered = filter.ApplyFilter(order);
 
-		Assert.True(isValid);
+		Assert.True(filtered);
 	}
 
 	[Fact]
-	public void ApplyFilter_OrderIsInvalid_ReturnsFalse()
+	public void ApplyFilter_OrderUnfiltered_ReturnsFalse()
 	{
 		var filterBy = DistrictId.Create();
-		var invalidOrder = Order.Create(OrderId.Create(), 1.0f, DistrictId.Create(), DateTime.UtcNow);
 		var filter = new DistrictIdOrderFilter(filterBy);
+		var orderId = OrderId.Create();
+		var weight = 1.0f;
+		var deliveryTime = DateTime.UtcNow;
+		var otherDistrictId = DistrictId.Create();
+		var order = Order.Create(orderId, weight, otherDistrictId, deliveryTime);
 
-		bool isValid = filter.ApplyFilter(invalidOrder);
+		bool filtered = filter.ApplyFilter(order);
 
-		Assert.False(isValid);
+		Assert.False(filtered);
 	}
 }
