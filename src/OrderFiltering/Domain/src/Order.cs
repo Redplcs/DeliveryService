@@ -2,8 +2,21 @@
 
 public class Order
 {
-	public OrderId Id { get; }
-	public float Weight { get; }
-	public DistrictId DeliveryDistrictId { get; }
-	public DateTime DeliveryTime { get; }
+	public OrderId Id { get; private set; }
+	public float Weight { get; private set; }
+	public DistrictId DeliveryDistrictId { get; private set; }
+	public DateTime DeliveryTime { get; private set; }
+
+	public static Order Create(OrderId id, float weight, DistrictId deliveryDistrictId, DateTime deliveryTime)
+	{
+		ArgumentOutOfRangeException.ThrowIfEqual(id, default, nameof(id));	// OrderId must be unique, not equals zero
+
+		return new Order
+		{
+			Id = id,
+			Weight = weight,
+			DeliveryDistrictId = deliveryDistrictId,
+			DeliveryTime = deliveryTime
+		};
+	}
 }
