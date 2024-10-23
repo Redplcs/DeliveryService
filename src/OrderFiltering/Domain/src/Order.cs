@@ -2,6 +2,10 @@
 
 public class Order
 {
+	private Order()
+	{
+	}
+
 	public OrderId Id { get; private set; }
 	public float Weight { get; private set; }
 	public DistrictId DeliveryDistrictId { get; private set; }
