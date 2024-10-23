@@ -6,6 +6,10 @@ public class OrderTests
 		[ new OrderId() ]
 	];
 
+	public static readonly IEnumerable<object[]> InvalidDeliveryDistrictIds = [
+		[ new DistrictId() ]
+	];
+
 	[Theory]
 	[MemberData(nameof(InvalidOrderIds))]
 	public void Create_InvalidId_ThrowsArgumentOutOfRangeException(OrderId id)
@@ -30,6 +34,20 @@ public class OrderTests
 		var deliveryTime = DateTime.UtcNow;
 
 		Assert.Throws<ArgumentOutOfRangeException>(paramName: nameof(weight), () =>
+		{
+			_ = Order.Create(id, weight, deliveryDistrictId, deliveryTime);
+		});
+	}
+
+	[Theory]
+	[MemberData(nameof(InvalidDeliveryDistrictIds))]
+	public void Create_InvalidDeliveryDistrictId_ThrowsArgumentOutOfRangeException(DistrictId deliveryDistrictId)
+	{
+		var id = OrderId.Create();
+		var weight = 1.0f;
+		var deliveryTime = DateTime.UtcNow;
+
+		Assert.Throws<ArgumentOutOfRangeException>(paramName: nameof(deliveryDistrictId), () =>
 		{
 			_ = Order.Create(id, weight, deliveryDistrictId, deliveryTime);
 		});

@@ -11,6 +11,7 @@ public class Order
 	{
 		ArgumentOutOfRangeException.ThrowIfEqual(id, default, nameof(id));			// OrderId must be unique, not equals zero
 		ArgumentOutOfRangeException.ThrowIfNegativeOrZero(weight, nameof(weight));	// Weight cannot be zero or negative
+		ArgumentOutOfRangeException.ThrowIfEqual(deliveryDistrictId, default, nameof(deliveryDistrictId));  // DistrictId must be unique, not equals zero
 
 		return new Order
 		{
