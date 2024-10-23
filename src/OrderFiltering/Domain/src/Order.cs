@@ -4,6 +4,6 @@ public class Order
 {
 	public OrderId Id { get; }
 	public float Weight { get; }
-	public AreaId DeliveryAreaId { get; }
+	public DistrictId DeliveryDistrictId { get; }
 	public DateTime DeliveryTime { get; }
 }

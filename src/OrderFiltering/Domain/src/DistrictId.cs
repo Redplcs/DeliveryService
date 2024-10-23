@@ -1,10 +1,10 @@
 ﻿namespace EffectiveMobile.DeliveryService.OrderFiltering.Domain;
 
-public readonly record struct AreaId(Guid Guid)
+public readonly record struct DistrictId(Guid Guid)
 {
-	public static AreaId Create()
+	public static DistrictId Create()
 	{
-		return new AreaId
+		return new DistrictId
 		{
 			Guid = Guid.NewGuid(),
 		};
