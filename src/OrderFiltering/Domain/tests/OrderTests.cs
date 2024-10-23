@@ -2,10 +2,14 @@
 
 public class OrderTests
 {
-	[Fact]
-	public void Create_ZeroId_ThrowsArgumentOutOfRangeException()
+	public static readonly IEnumerable<object[]> InvalidOrderIds = [
+		[ new OrderId() ]
+	];
+
+	[Theory]
+	[MemberData(nameof(InvalidOrderIds))]
+	public void Create_InvalidId_ThrowsArgumentOutOfRangeException(OrderId id)
 	{
-		var id = new OrderId();
 		var weight = 1.0f;
 		var deliveryDistrictId = DistrictId.Create();
 		var deliveryTime = DateTime.UtcNow;
