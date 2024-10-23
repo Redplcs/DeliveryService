@@ -9,7 +9,8 @@ public class Order
 
 	public static Order Create(OrderId id, float weight, DistrictId deliveryDistrictId, DateTime deliveryTime)
 	{
-		ArgumentOutOfRangeException.ThrowIfEqual(id, default, nameof(id));	// OrderId must be unique, not equals zero
+		ArgumentOutOfRangeException.ThrowIfEqual(id, default, nameof(id));			// OrderId must be unique, not equals zero
+		ArgumentOutOfRangeException.ThrowIfNegativeOrZero(weight, nameof(weight));	// Weight cannot be zero or negative
 
 		return new Order
 		{
