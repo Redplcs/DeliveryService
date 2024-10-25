@@ -1,4 +1,5 @@
 ﻿using EffectiveMobile.DeliveryService.OrderFiltering.Domain;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 
 namespace EffectiveMobile.DeliveryService.OrderFiltering.Infrastructure;
@@ -20,5 +21,19 @@ public class TextOrderParser
 		var deliveryTime = DateTime.ParseExact(properties[3], deliveryTimeFormat, CultureInfo.InvariantCulture);
 
 		return Order.Create(new OrderId(orderGuid), weight, new DistrictId(deliveryDistrictGuid), deliveryTime);
+	}
+
+	public static bool TryParse(string input, [NotNullWhen(returnValue: true)] out Order? order)
+	{
+		try
+		{
+			order = Parse(input);
+			return true;
+		}
+		catch
+		{
+			order = null;
+			return false;
+		}
 	}
 }
