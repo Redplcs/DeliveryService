@@ -1,7 +1,7 @@
 ﻿using EffectiveMobile.DeliveryService.OrderFiltering.Domain;
 using System.Globalization;
 
-namespace EffectiveMobile.DeliveryService.OrderFiltering.Infrastructure.Tests;
+namespace EffectiveMobile.DeliveryService.OrderFiltering.Infrastructure.Tests.Orders;
 
 public class OrderData
 {

@@ -1,6 +1,6 @@
 ﻿using EffectiveMobile.DeliveryService.OrderFiltering.Domain;
 
-namespace EffectiveMobile.DeliveryService.OrderFiltering.Infrastructure;
+namespace EffectiveMobile.DeliveryService.OrderFiltering.Infrastructure.Orders;
 
 public class TextFileOrderProvider : IOrderProvider, IDisposable
 {

@@ -2,7 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 
-namespace EffectiveMobile.DeliveryService.OrderFiltering.Infrastructure;
+namespace EffectiveMobile.DeliveryService.OrderFiltering.Infrastructure.Orders;
 
 public class TextOrderParser
 {

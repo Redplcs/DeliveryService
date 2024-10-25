@@ -1,7 +1,8 @@
 ﻿using EffectiveMobile.DeliveryService.OrderFiltering.Domain;
+using EffectiveMobile.DeliveryService.OrderFiltering.Infrastructure.Orders;
 using System.Globalization;
 
-namespace EffectiveMobile.DeliveryService.OrderFiltering.Infrastructure.Tests;
+namespace EffectiveMobile.DeliveryService.OrderFiltering.Infrastructure.Tests.Orders;
 
 public class TextOrderParserTests
 {
