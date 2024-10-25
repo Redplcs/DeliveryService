@@ -11,7 +11,7 @@ public class TextOrderParserTests
 		var expectedOrderId = OrderId.Create();
 		var expectedWeight = 1.0f;
 		var expectedDeliveryDistrictId = DistrictId.Create();
-		var expectedDeliveryTime = DateTime.UtcNow;
+		var expectedDeliveryTime = GetUtcNowWithoutMilliseconds();
 		var input = string.Format(CultureInfo.InvariantCulture, "{0},{1},{2},{3:yyyy-MM-dd HH:mm:ss}",
 			expectedOrderId, expectedWeight, expectedDeliveryDistrictId, expectedDeliveryTime);
 
@@ -22,5 +22,11 @@ public class TextOrderParserTests
 		Assert.Equal(expectedWeight, order.Weight);
 		Assert.Equal(expectedDeliveryDistrictId, order.DeliveryDistrictId);
 		Assert.Equal(expectedDeliveryTime, order.DeliveryTime);
+	}
+
+	private static DateTime GetUtcNowWithoutMilliseconds()
+	{
+		var utcNow = DateTime.UtcNow;
+		return new DateTime(utcNow.Year, utcNow.Month, utcNow.Day, utcNow.Hour, utcNow.Minute, utcNow.Second, DateTimeKind.Utc);
 	}
 }
