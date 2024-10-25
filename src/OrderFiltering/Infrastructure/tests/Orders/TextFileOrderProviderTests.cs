@@ -1,4 +1,6 @@
-﻿namespace EffectiveMobile.DeliveryService.OrderFiltering.Infrastructure.Tests.Orders;
+﻿using EffectiveMobile.DeliveryService.OrderFiltering.Infrastructure.Orders;
+
+namespace EffectiveMobile.DeliveryService.OrderFiltering.Infrastructure.Tests.Orders;
 
 public class TextFileOrderProviderTests
 {
