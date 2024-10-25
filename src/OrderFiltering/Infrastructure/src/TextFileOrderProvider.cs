@@ -11,6 +11,11 @@ public class TextFileOrderProvider : IOrderProvider, IDisposable
 		_reader = new StringReader(input);
 	}
 
+	public TextFileOrderProvider(FileStream stream)
+	{
+		_reader = new StreamReader(stream);
+	}
+
 	public void Dispose()
 	{
 		GC.SuppressFinalize(this);
