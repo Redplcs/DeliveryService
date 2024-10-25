@@ -7,4 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Domain\src\EffectiveMobile.DeliveryService.OrderFiltering.Domain.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\src\EffectiveMobile.DeliveryService.OrderFiltering.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
