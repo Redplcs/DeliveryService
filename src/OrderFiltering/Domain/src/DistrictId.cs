@@ -2,6 +2,11 @@
 
 public readonly record struct DistrictId(Guid Guid)
 {
+	public override string ToString()
+	{
+		return Guid.ToString();
+	}
+
 	public static DistrictId Create()
 	{
 		return new DistrictId
