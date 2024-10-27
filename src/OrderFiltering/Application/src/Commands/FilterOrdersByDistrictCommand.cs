@@ -2,7 +2,7 @@
 
 namespace EffectiveMobile.DeliveryService.OrderFiltering.Application.Commands;
 
-public class FilterOrdersByDistrictCommand(IOrderProvider orders) : ICommand<IEnumerable<Order>>
+public class FilterOrdersByDistrictCommand(IOrderProvider orders) : IFilterOrdersByDistrictCommand
 {
 	private DistrictId _districtId;
 
