@@ -2,7 +2,7 @@
   "profiles": {
     "EffectiveMobile.DeliveryService.OrderFiltering.Application": {
         "commandName": "Project",
-        "commandLineArgs": "--_firstDeliveryDateTime=\"27.10.2024 12:08:40\" --_deliveryLog=\"logs.txt\" --_inputOrder=\"input.txt\" --_deliveryOrder=\"output.txt\" --_cityDistrict=\"84ec622e-813f-4a45-9a7b-a85c162e03ac\""
+        "commandLineArgs": "--_firstDeliveryDateTime=\"2024-07-19 18:41:00\" --_deliveryLog=\"logs.txt\" --_inputOrder=\"input.txt\" --_deliveryOrder=\"output.txt\" --_cityDistrict=\"5c3a8d4e-95d1-4a73-b6c7-0b388d94b77d\""
     }
   }
 }
