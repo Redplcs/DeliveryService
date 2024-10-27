@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "EffectiveMobile.DeliveryService.OrderFiltering.Application": {
+      "commandName": "Project",
+      "commandLineArgs": "--_deliveryOrder=\"input.txt\""
+    }
+  }
+}
