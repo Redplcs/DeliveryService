@@ -21,13 +21,6 @@ public class FilterOrdersByDistrictCommand(IOrderProvider orders) : IFilterOrder
 	private static IEnumerable<Order> ProduceFilteredOrders(DistrictId districtId, IEnumerable<Order> source)
 	{
 		var filter = new DistrictIdOrderFilter(districtId);
-
-		foreach (var order in source)
-		{
-			if (filter.ApplyFilter(order))
-			{
-				yield return order;
-			}
-		}
+		return source.Where(filter.ApplyFilter);
 	}
 }
