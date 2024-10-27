@@ -9,28 +9,31 @@ namespace EffectiveMobile.DeliveryService.OrderFiltering.Application.Services;
 
 public class OrderFilteringService(
 	IFilterOrdersByDistrictCommand filterOrdersByDistrictCommand,
+	IOrderSender sender,
 	IConfiguration configuration,
 	ILogger<OrderFilteringService> logger) : BackgroundService
 {
-	protected override Task ExecuteAsync(CancellationToken stoppingToken)
+	protected override async Task ExecuteAsync(CancellationToken stoppingToken)
 	{
 		var cityDistrict = configuration.GetSection("_cityDistrict");
 
 		if (cityDistrict.Exists())
 		{
-			logger.LogInformation("Filtering by district");
-
 			var districtGuid = Guid.Parse(cityDistrict.Value!);
 			filterOrdersByDistrictCommand.AddParameter(new DistrictId(districtGuid));
-			
+
+			logger.LogInformation("Filtering by district: {district}", districtGuid);
+
 			var filteredOrders = filterOrdersByDistrictCommand.Execute();
 
 			LogFilteredOrders(filteredOrders);
+
+			await sender.Send(filteredOrders);
+
+			logger.LogInformation("Filtered orders saved to file");
 		}
 
 		// TODO: _firstDeliveryDateTime
-
-		return Task.CompletedTask;
 	}
 
 	private void LogFilteredOrders(IEnumerable<Order> orders)
