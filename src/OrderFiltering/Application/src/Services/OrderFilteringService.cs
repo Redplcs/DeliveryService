@@ -49,7 +49,7 @@ public class OrderFilteringService(
 				$"DeliveryDistrictId = {order.DeliveryDistrictId}, " +
 				$"DeliveryTime = {order.DeliveryTime}");
 		}
-
-		logger.LogInformation(stringBuilder.ToString());
+		
+		logger.LogInformation("{message}", stringBuilder.ToString());
 	}
 }
