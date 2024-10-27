@@ -13,6 +13,7 @@ public class OrderFilteringService(
 	ILogger<OrderFilteringService> logger) : BackgroundService
 {
 	private readonly IConfigurationSection _cityDistrict = configuration.GetSection(nameof(_cityDistrict));
+	private readonly IConfigurationSection _firstDeliveryDateTime = configuration.GetSection(nameof(_firstDeliveryDateTime));
 
 	protected override async Task ExecuteAsync(CancellationToken stoppingToken)
 	{
@@ -36,7 +37,18 @@ public class OrderFilteringService(
 			}
 		}
 
-		// TODO: _firstDeliveryDateTime
+		if (_firstDeliveryDateTime.Exists())
+		{
+			if (!DateTime.TryParse(_firstDeliveryDateTime.Value!, out var deliveryTime))
+			{
+				logger.LogWarning("The {paramName} value is not valid time. Ignoring filtering by delivery time", nameof(deliveryTime));
+			}
+			else
+			{
+				incomingOrders = FilterByFirstDeliveryDateTime(incomingOrders, deliveryTime);
+				LogOrders(logger, "Incoming orders filtered by delivery time", incomingOrders);
+			}
+		}
 
 		await sender.Send(incomingOrders);
 		LogOrders(logger, "Incoming order sended", incomingOrders);
@@ -50,6 +62,12 @@ public class OrderFilteringService(
 	private static IEnumerable<Order> FilterByDistrictId(IEnumerable<Order> source, DistrictId id)
 	{
 		var filter = new DistrictIdOrderFilter(id);
+		return source.Where(filter.ApplyFilter);
+	}
+
+	private static IEnumerable<Order> FilterByFirstDeliveryDateTime(IEnumerable<Order> source, DateTime deliveryTime)
+	{
+		var filter = new DeliveryTimeOrderFilter(deliveryTime);
 		return source.Where(filter.ApplyFilter);
 	}
 
