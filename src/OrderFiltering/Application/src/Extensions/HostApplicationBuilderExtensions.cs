@@ -1,5 +1,4 @@
-﻿using EffectiveMobile.DeliveryService.OrderFiltering.Application.Commands;
-using EffectiveMobile.DeliveryService.OrderFiltering.Application.Services;
+﻿using EffectiveMobile.DeliveryService.OrderFiltering.Application.Services;
 using EffectiveMobile.DeliveryService.OrderFiltering.Domain;
 using EffectiveMobile.DeliveryService.OrderFiltering.Infrastructure.Orders;
 using Microsoft.Extensions.Configuration;
@@ -69,7 +68,6 @@ public static class HostApplicationBuilderExtensions
 
 	public static IHostApplicationBuilder AddOrderFilteringService(this IHostApplicationBuilder app)
 	{
-		app.Services.AddSingleton<IFilterOrdersByDistrictCommand, FilterOrdersByDistrictCommand>();
 		app.Services.AddHostedService<OrderFilteringService>();
 		return app;
 	}

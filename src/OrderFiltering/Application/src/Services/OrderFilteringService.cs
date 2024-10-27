@@ -1,5 +1,4 @@
-﻿using EffectiveMobile.DeliveryService.OrderFiltering.Application.Commands;
-using EffectiveMobile.DeliveryService.OrderFiltering.Domain;
+﻿using EffectiveMobile.DeliveryService.OrderFiltering.Domain;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -8,48 +7,74 @@ using System.Text;
 namespace EffectiveMobile.DeliveryService.OrderFiltering.Application.Services;
 
 public class OrderFilteringService(
-	IFilterOrdersByDistrictCommand filterOrdersByDistrictCommand,
+	IOrderProvider orders,
 	IOrderSender sender,
 	IConfiguration configuration,
 	ILogger<OrderFilteringService> logger) : BackgroundService
 {
+	private readonly IConfigurationSection _cityDistrict = configuration.GetSection(nameof(_cityDistrict));
+
 	protected override async Task ExecuteAsync(CancellationToken stoppingToken)
 	{
-		var cityDistrict = configuration.GetSection("_cityDistrict");
+		IEnumerable<Order> incomingOrders = orders.GetOrders();
+		LogOrders(logger, $"Received {incomingOrders.Count()} orders", incomingOrders);
 
-		if (cityDistrict.Exists())
+		incomingOrders = OrderByTime(incomingOrders);
+		LogOrders(logger, "Incoming orders sorted by time", incomingOrders);
+
+		if (_cityDistrict.Exists())
 		{
-			var districtGuid = Guid.Parse(cityDistrict.Value!);
-			filterOrdersByDistrictCommand.AddParameter(new DistrictId(districtGuid));
-
-			logger.LogInformation("Filtering by district: {district}", districtGuid);
-
-			var filteredOrders = filterOrdersByDistrictCommand.Execute();
-
-			LogFilteredOrders(filteredOrders);
-
-			await sender.Send(filteredOrders);
-
-			logger.LogInformation("Filtered orders saved to file");
+			if (!Guid.TryParse(_cityDistrict.Value!, out var districtGuid))
+			{
+				logger.LogWarning("The {paramName} value is not valid guid. Ignoring filtering by district", nameof(_cityDistrict));
+			}
+			else
+			{
+				var districtId = new DistrictId(districtGuid);
+				incomingOrders = FilterByDistrictId(incomingOrders, districtId);
+				LogOrders(logger, "Incoming orders filtered by district id", incomingOrders);
+			}
 		}
 
 		// TODO: _firstDeliveryDateTime
+
+		await sender.Send(incomingOrders);
+		LogOrders(logger, "Incoming order sended", incomingOrders);
 	}
 
-	private void LogFilteredOrders(IEnumerable<Order> orders)
+	private static IEnumerable<Order> OrderByTime(IEnumerable<Order> source)
+	{
+		return source.OrderBy(x => x.DeliveryTime);
+	}
+
+	private static IEnumerable<Order> FilterByDistrictId(IEnumerable<Order> source, DistrictId id)
+	{
+		var filter = new DistrictIdOrderFilter(id);
+		return source.Where(filter.ApplyFilter);
+	}
+
+	private static void LogOrders(ILogger<OrderFilteringService> logger, string header, IEnumerable<Order> orders)
 	{
 		var stringBuilder = new StringBuilder();
-		stringBuilder.AppendLine($"Filtered {orders.Count()} orders:");
+		stringBuilder.AppendLine(header);
 
 		foreach (var order in orders)
 		{
-			stringBuilder.AppendLine($"\t" +
-				$"OrderId = {order.Id}, " +
-				$"Weight = {order.Weight}, " +
-				$"DeliveryDistrictId = {order.DeliveryDistrictId}, " +
-				$"DeliveryTime = {order.DeliveryTime}");
+			stringBuilder.Append('\t');
+			stringBuilder.Append("OrderId = ");
+			stringBuilder.Append(order.Id);
+			stringBuilder.Append(", ");
+			stringBuilder.Append("Weight = ");
+			stringBuilder.Append(order.Weight);
+			stringBuilder.Append(", ");
+			stringBuilder.Append("DeliveryDistrictId = ");
+			stringBuilder.Append(order.DeliveryDistrictId);
+			stringBuilder.Append(", ");
+			stringBuilder.Append("DeliveryTime = ");
+			stringBuilder.Append(order.DeliveryTime);
+			stringBuilder.AppendLine();
 		}
-		
-		logger.LogInformation("{message}", stringBuilder.ToString());
+
+		logger.LogInformation("{message}", stringBuilder);
 	}
 }
