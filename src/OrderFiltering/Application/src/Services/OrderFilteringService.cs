@@ -67,7 +67,7 @@ public class OrderFilteringService(
 
 	private static IEnumerable<Order> FilterByFirstDeliveryDateTime(IEnumerable<Order> source, DateTime deliveryTime)
 	{
-		var filter = new DeliveryTimeOrderFilter(deliveryTime);
+		var filter = new DeliveryTimeOrderFilter(deliveryTime, deliveryTime.AddMinutes(30));
 		return source.Where(filter.ApplyFilter);
 	}
 
