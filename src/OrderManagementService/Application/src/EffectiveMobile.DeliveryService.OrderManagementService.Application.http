@@ -1,6 +1,37 @@
-@EffectiveMobile.DeliveryService.OrderManagementService.Application_HostAddress = http://localhost:5058
+@EffectiveMobile.DeliveryService.OrderManagementService.Application_HostAddress = https://localhost:7130
 
-GET {{EffectiveMobile.DeliveryService.OrderManagementService.Application_HostAddress}}/weatherforecast/
-Accept: application/json
+POST {{EffectiveMobile.DeliveryService.OrderManagementService.Application_HostAddress}}/orders
+Content-Type: application/json
 
-###
+{
+	"id": "415b6ec1-e665-4687-98ba-f289b0295e3d",
+	"weight": "25",
+	"deliveryDistrictId": "b26a3ad2-e33e-4c32-b36f-bc4f58ebd8ea",
+	"deliveryTime": "2019-07-26T00:00:00"
+}
+
+### Create new order
+
+GET {{EffectiveMobile.DeliveryService.OrderManagementService.Application_HostAddress}}/orders
+
+### Read all orders
+
+GET {{EffectiveMobile.DeliveryService.OrderManagementService.Application_HostAddress}}/orders/415b6ec1-e665-4687-98ba-f289b0295e3d
+
+### Read specific order by id
+
+PUT {{EffectiveMobile.DeliveryService.OrderManagementService.Application_HostAddress}}/orders/415b6ec1-e665-4687-98ba-f289b0295e3d
+Content-Type: application/json
+
+{
+	"id": "415b6ec1-e665-4687-98ba-f289b0295e3d",
+	"weight": "228",
+	"deliveryDistrictId": "b26a3ad2-e33e-4c32-b36f-bc4f58ebd8ea",
+	"deliveryTime": "2023-01-03T00:00:00"
+}
+
+### Update order
+
+DELETE {{EffectiveMobile.DeliveryService.OrderManagementService.Application_HostAddress}}/orders/415b6ec1-e665-4687-98ba-f289b0295e3d
+
+### Delete order by id
