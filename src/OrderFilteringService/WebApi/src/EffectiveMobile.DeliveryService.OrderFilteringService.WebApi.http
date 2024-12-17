@@ -1,0 +1,6 @@
+@EffectiveMobile.DeliveryService.OrderFilteringService.WebApi_HostAddress = http://localhost:5169
+
+GET {{EffectiveMobile.DeliveryService.OrderFilteringService.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

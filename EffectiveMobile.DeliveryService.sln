@@ -43,6 +43,20 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{06DE9DB9
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EffectiveMobile.DeliveryService.UnitTests", "tests\UnitTests\EffectiveMobile.DeliveryService.UnitTests.csproj", "{C2E37E57-E430-4E62-8AA7-F115665D03C5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OrderFilteringService", "OrderFilteringService", "{422B007D-EDB9-46C4-BEFA-10F9BA53A02F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApplicationCore", "ApplicationCore", "{9A2C7B5A-64CD-4AD1-A053-A0C892848C89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EffectiveMobile.DeliveryService.OrderFilteringService.ApplicationCore", "src\OrderFilteringService\ApplicationCore\src\EffectiveMobile.DeliveryService.OrderFilteringService.ApplicationCore.csproj", "{9086E27E-018C-489E-8458-1708DA9AD7A1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{998ED963-73B5-4100-8A60-63B9AAB73176}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EffectiveMobile.DeliveryService.OrderFilteringService.Infrastructure", "src\OrderFilteringService\Infrastructure\src\EffectiveMobile.DeliveryService.OrderFilteringService.Infrastructure.csproj", "{86E1FB2C-8152-4437-B6C9-5197EC5AD305}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApi", "WebApi", "{70CB6B42-DC6D-4E2F-87B1-32476587F295}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EffectiveMobile.DeliveryService.OrderFilteringService.WebApi", "src\OrderFilteringService\WebApi\src\EffectiveMobile.DeliveryService.OrderFilteringService.WebApi.csproj", "{1D08F09D-B262-4D40-986D-233E65AECA53}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -92,6 +106,18 @@ Global
 		{C2E37E57-E430-4E62-8AA7-F115665D03C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2E37E57-E430-4E62-8AA7-F115665D03C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2E37E57-E430-4E62-8AA7-F115665D03C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9086E27E-018C-489E-8458-1708DA9AD7A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9086E27E-018C-489E-8458-1708DA9AD7A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9086E27E-018C-489E-8458-1708DA9AD7A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9086E27E-018C-489E-8458-1708DA9AD7A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86E1FB2C-8152-4437-B6C9-5197EC5AD305}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86E1FB2C-8152-4437-B6C9-5197EC5AD305}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86E1FB2C-8152-4437-B6C9-5197EC5AD305}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86E1FB2C-8152-4437-B6C9-5197EC5AD305}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D08F09D-B262-4D40-986D-233E65AECA53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D08F09D-B262-4D40-986D-233E65AECA53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D08F09D-B262-4D40-986D-233E65AECA53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D08F09D-B262-4D40-986D-233E65AECA53}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B6393868-5408-472D-BB33-1E473DBBA428} = {56E1C43E-FD9D-4C80-ABCD-9DC00FBBD9A1}
@@ -112,5 +138,12 @@ Global
 		{A09FA25F-C82A-4172-90A1-DE6F4795E578} = {FC0C39B4-8520-4B6C-8703-5D7BE7C8D757}
 		{DFAEB32D-5EC7-4BFC-B6DF-A1D00746E076} = {A09FA25F-C82A-4172-90A1-DE6F4795E578}
 		{C2E37E57-E430-4E62-8AA7-F115665D03C5} = {06DE9DB9-B053-41C0-A949-7DC938AA3F11}
+		{422B007D-EDB9-46C4-BEFA-10F9BA53A02F} = {56E1C43E-FD9D-4C80-ABCD-9DC00FBBD9A1}
+		{9A2C7B5A-64CD-4AD1-A053-A0C892848C89} = {422B007D-EDB9-46C4-BEFA-10F9BA53A02F}
+		{9086E27E-018C-489E-8458-1708DA9AD7A1} = {9A2C7B5A-64CD-4AD1-A053-A0C892848C89}
+		{998ED963-73B5-4100-8A60-63B9AAB73176} = {422B007D-EDB9-46C4-BEFA-10F9BA53A02F}
+		{86E1FB2C-8152-4437-B6C9-5197EC5AD305} = {998ED963-73B5-4100-8A60-63B9AAB73176}
+		{70CB6B42-DC6D-4E2F-87B1-32476587F295} = {422B007D-EDB9-46C4-BEFA-10F9BA53A02F}
+		{1D08F09D-B262-4D40-986D-233E65AECA53} = {70CB6B42-DC6D-4E2F-87B1-32476587F295}
 	EndGlobalSection
 EndGlobal
