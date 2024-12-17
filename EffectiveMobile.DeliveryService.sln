@@ -39,6 +39,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EffectiveMobile.DeliveryService.OrderManagementService.Infrastructure", "src\OrderManagementService\Infrastructure\src\EffectiveMobile.DeliveryService.OrderManagementService.Infrastructure.csproj", "{DFAEB32D-5EC7-4BFC-B6DF-A1D00746E076}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{06DE9DB9-B053-41C0-A949-7DC938AA3F11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EffectiveMobile.DeliveryService.UnitTests", "tests\UnitTests\EffectiveMobile.DeliveryService.UnitTests.csproj", "{C2E37E57-E430-4E62-8AA7-F115665D03C5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -84,6 +88,10 @@ Global
 		{DFAEB32D-5EC7-4BFC-B6DF-A1D00746E076}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DFAEB32D-5EC7-4BFC-B6DF-A1D00746E076}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DFAEB32D-5EC7-4BFC-B6DF-A1D00746E076}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2E37E57-E430-4E62-8AA7-F115665D03C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2E37E57-E430-4E62-8AA7-F115665D03C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2E37E57-E430-4E62-8AA7-F115665D03C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2E37E57-E430-4E62-8AA7-F115665D03C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B6393868-5408-472D-BB33-1E473DBBA428} = {56E1C43E-FD9D-4C80-ABCD-9DC00FBBD9A1}
@@ -103,5 +111,6 @@ Global
 		{FFFB0EF6-B08E-4725-BD06-B84CD88D677A} = {1F34A94C-42C8-401D-ABAF-DA8FE3C097D7}
 		{A09FA25F-C82A-4172-90A1-DE6F4795E578} = {FC0C39B4-8520-4B6C-8703-5D7BE7C8D757}
 		{DFAEB32D-5EC7-4BFC-B6DF-A1D00746E076} = {A09FA25F-C82A-4172-90A1-DE6F4795E578}
+		{C2E37E57-E430-4E62-8AA7-F115665D03C5} = {06DE9DB9-B053-41C0-A949-7DC938AA3F11}
 	EndGlobalSection
 EndGlobal
