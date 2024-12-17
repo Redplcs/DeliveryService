@@ -25,6 +25,20 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EffectiveMobile.DeliverySer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EffectiveMobile.DeliveryService.OrderFiltering.Application.Tests", "src\OrderFiltering\Application\tests\EffectiveMobile.DeliveryService.OrderFiltering.Application.Tests.csproj", "{115A128F-20C5-4911-AA05-30C2F5CCE2C6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OrderManagementService", "OrderManagementService", "{FC0C39B4-8520-4B6C-8703-5D7BE7C8D757}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{581BD193-5203-4B06-ACB9-3D1072EDDEB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EffectiveMobile.DeliveryService.OrderManagementService.Domain", "src\OrderManagementService\Domain\src\EffectiveMobile.DeliveryService.OrderManagementService.Domain.csproj", "{5788B78B-388D-46F3-BA59-805F01E8799E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{1F34A94C-42C8-401D-ABAF-DA8FE3C097D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EffectiveMobile.DeliveryService.OrderManagementService.Application", "src\OrderManagementService\Application\src\EffectiveMobile.DeliveryService.OrderManagementService.Application.csproj", "{FFFB0EF6-B08E-4725-BD06-B84CD88D677A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{A09FA25F-C82A-4172-90A1-DE6F4795E578}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EffectiveMobile.DeliveryService.OrderManagementService.Infrastructure", "src\OrderManagementService\Infrastructure\src\EffectiveMobile.DeliveryService.OrderManagementService.Infrastructure.csproj", "{DFAEB32D-5EC7-4BFC-B6DF-A1D00746E076}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,6 +72,18 @@ Global
 		{115A128F-20C5-4911-AA05-30C2F5CCE2C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{115A128F-20C5-4911-AA05-30C2F5CCE2C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{115A128F-20C5-4911-AA05-30C2F5CCE2C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5788B78B-388D-46F3-BA59-805F01E8799E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5788B78B-388D-46F3-BA59-805F01E8799E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5788B78B-388D-46F3-BA59-805F01E8799E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5788B78B-388D-46F3-BA59-805F01E8799E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFFB0EF6-B08E-4725-BD06-B84CD88D677A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFFB0EF6-B08E-4725-BD06-B84CD88D677A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFFB0EF6-B08E-4725-BD06-B84CD88D677A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFFB0EF6-B08E-4725-BD06-B84CD88D677A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFAEB32D-5EC7-4BFC-B6DF-A1D00746E076}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFAEB32D-5EC7-4BFC-B6DF-A1D00746E076}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFAEB32D-5EC7-4BFC-B6DF-A1D00746E076}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFAEB32D-5EC7-4BFC-B6DF-A1D00746E076}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B6393868-5408-472D-BB33-1E473DBBA428} = {56E1C43E-FD9D-4C80-ABCD-9DC00FBBD9A1}
@@ -70,5 +96,12 @@ Global
 		{9282DF63-7915-4A78-BB44-E949AF2A9CFA} = {B6393868-5408-472D-BB33-1E473DBBA428}
 		{0BB05442-2DE3-4836-9A7B-D9D94B5BBAF7} = {9282DF63-7915-4A78-BB44-E949AF2A9CFA}
 		{115A128F-20C5-4911-AA05-30C2F5CCE2C6} = {9282DF63-7915-4A78-BB44-E949AF2A9CFA}
+		{FC0C39B4-8520-4B6C-8703-5D7BE7C8D757} = {56E1C43E-FD9D-4C80-ABCD-9DC00FBBD9A1}
+		{581BD193-5203-4B06-ACB9-3D1072EDDEB9} = {FC0C39B4-8520-4B6C-8703-5D7BE7C8D757}
+		{5788B78B-388D-46F3-BA59-805F01E8799E} = {581BD193-5203-4B06-ACB9-3D1072EDDEB9}
+		{1F34A94C-42C8-401D-ABAF-DA8FE3C097D7} = {FC0C39B4-8520-4B6C-8703-5D7BE7C8D757}
+		{FFFB0EF6-B08E-4725-BD06-B84CD88D677A} = {1F34A94C-42C8-401D-ABAF-DA8FE3C097D7}
+		{A09FA25F-C82A-4172-90A1-DE6F4795E578} = {FC0C39B4-8520-4B6C-8703-5D7BE7C8D757}
+		{DFAEB32D-5EC7-4BFC-B6DF-A1D00746E076} = {A09FA25F-C82A-4172-90A1-DE6F4795E578}
 	EndGlobalSection
 EndGlobal
