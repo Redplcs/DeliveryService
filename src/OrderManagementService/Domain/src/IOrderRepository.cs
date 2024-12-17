@@ -6,5 +6,6 @@ public interface IOrderRepository
 	IEnumerable<Order> GetAll();
 	Order? GetById(Guid id);
 	void Update(Order order);
+	void Remove(Order order);
 	void RemoveById(Guid id);
 }

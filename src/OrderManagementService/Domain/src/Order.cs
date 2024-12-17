@@ -4,13 +4,8 @@ namespace EffectiveMobile.DeliveryService.OrderManagementService.Domain;
 
 public class Order
 {
-	public Order(Guid id)
-	{
-		Id = id;
-	}
-
 	[Required, Key]
-	public Guid Id { get; }
+	public Guid Id { get; set; }
 
 	[Required, Range(0.01, 1000)]
 	public double Weight { get; set; }

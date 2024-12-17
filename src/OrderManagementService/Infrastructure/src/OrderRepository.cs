@@ -20,14 +20,19 @@ public class OrderRepository(OrderingContext context) : IOrderRepository
 		return context.Orders.FirstOrDefault(order => order.Id == id);
 	}
 
+	public void Remove(Order order)
+	{
+		context.Orders.Remove(order);
+		context.SaveChanges();
+	}
+
 	public void RemoveById(Guid id)
 	{
 		var order = GetById(id);
 
 		if (order is not null)
 		{
-			context.Orders.Remove(order);
-			context.SaveChanges();
+			Remove(order);
 		}
 	}
 
