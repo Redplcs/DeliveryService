@@ -2,6 +2,7 @@ using EffectiveMobile.DeliveryService.OrderManagementService.Domain;
 using EffectiveMobile.DeliveryService.OrderManagementService.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using MiniValidation;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,6 +30,16 @@ app.Run();
 
 static IResult CreateOrder(Order order, [FromServices] IOrderRepository repository)
 {
+	if (repository.GetById(order.Id) is not null)
+	{
+		return Results.BadRequest("The order already exists");
+	}
+
+	if (!MiniValidator.TryValidate(order, out var errors))
+	{
+		return Results.ValidationProblem(errors);
+	}
+
 	repository.Add(order);
 
 	return Results.Created($"/orders/{order.Id}", order);
@@ -60,6 +71,11 @@ static IResult UpdateOrder(Guid id, Order input, [FromServices] IOrderRepository
 	if (order is null)
 	{
 		return Results.NotFound();
+	}
+
+	if (!MiniValidator.TryValidate(input, out var errors))
+	{
+		return Results.ValidationProblem(errors);
 	}
 
 	order.Weight = input.Weight;
