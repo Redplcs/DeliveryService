@@ -16,7 +16,7 @@ GET {{EffectiveMobile.DeliveryService.OrderFiltering.WebApi_HostAddress}}/api/or
 
 ### Read all orders
 
-PUT {{EffectiveMobile.DeliveryService.OrderFiltering.WebApi_HostAddress}}/api/orders/415b6ec1-e665-4687-98ba-f289b0295e3d
+PUT {{EffectiveMobile.DeliveryService.OrderFiltering.WebApi_HostAddress}}/api/orders?id=415b6ec1-e665-4687-98ba-f289b0295e3d
 Content-Type: application/json
 
 {
@@ -27,6 +27,6 @@ Content-Type: application/json
 
 ### Update order
 
-DELETE {{EffectiveMobile.DeliveryService.OrderFiltering.WebApi_HostAddress}}/api/orders/415b6ec1-e665-4687-98ba-f289b0295e3d
+DELETE {{EffectiveMobile.DeliveryService.OrderFiltering.WebApi_HostAddress}}/api/orders?id=415b6ec1-e665-4687-98ba-f289b0295e3d
 
 ### Delete order
