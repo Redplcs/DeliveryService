@@ -7,18 +7,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{56E1C43E-FD9
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OrderFiltering", "OrderFiltering", "{B6393868-5408-472D-BB33-1E473DBBA428}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{BB04B399-3C23-4401-8D7D-E91BB287393C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EffectiveMobile.DeliveryService.OrderFiltering.Domain", "src\OrderFiltering\Domain\src\EffectiveMobile.DeliveryService.OrderFiltering.Domain.csproj", "{8C3E1506-732D-4AE6-9A46-0B4FF778ABCB}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EffectiveMobile.DeliveryService.OrderFiltering.Domain.Tests", "src\OrderFiltering\Domain\tests\EffectiveMobile.DeliveryService.OrderFiltering.Domain.Tests.csproj", "{0653EA4A-33BC-4F63-BF34-189BDE1F23D3}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{7595A399-0D5D-4CB5-B8A0-A87E4AA8DB95}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EffectiveMobile.DeliveryService.OrderFiltering.Infrastructure", "src\OrderFiltering\Infrastructure\src\EffectiveMobile.DeliveryService.OrderFiltering.Infrastructure.csproj", "{5ED0246F-E3EC-4227-96C8-2553BB6F8C62}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EffectiveMobile.DeliveryService.OrderFiltering.Infrastructure.Tests", "src\OrderFiltering\Infrastructure\tests\EffectiveMobile.DeliveryService.OrderFiltering.Infrastructure.Tests.csproj", "{13513699-66E8-4661-A3A2-77A26A46B824}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{9282DF63-7915-4A78-BB44-E949AF2A9CFA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EffectiveMobile.DeliveryService.OrderFiltering.Application", "src\OrderFiltering\Application\src\EffectiveMobile.DeliveryService.OrderFiltering.Application.csproj", "{0BB05442-2DE3-4836-9A7B-D9D94B5BBAF7}"
@@ -40,22 +28,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8C3E1506-732D-4AE6-9A46-0B4FF778ABCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8C3E1506-732D-4AE6-9A46-0B4FF778ABCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8C3E1506-732D-4AE6-9A46-0B4FF778ABCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8C3E1506-732D-4AE6-9A46-0B4FF778ABCB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0653EA4A-33BC-4F63-BF34-189BDE1F23D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0653EA4A-33BC-4F63-BF34-189BDE1F23D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0653EA4A-33BC-4F63-BF34-189BDE1F23D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0653EA4A-33BC-4F63-BF34-189BDE1F23D3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5ED0246F-E3EC-4227-96C8-2553BB6F8C62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5ED0246F-E3EC-4227-96C8-2553BB6F8C62}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5ED0246F-E3EC-4227-96C8-2553BB6F8C62}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5ED0246F-E3EC-4227-96C8-2553BB6F8C62}.Release|Any CPU.Build.0 = Release|Any CPU
-		{13513699-66E8-4661-A3A2-77A26A46B824}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{13513699-66E8-4661-A3A2-77A26A46B824}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{13513699-66E8-4661-A3A2-77A26A46B824}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{13513699-66E8-4661-A3A2-77A26A46B824}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0BB05442-2DE3-4836-9A7B-D9D94B5BBAF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0BB05442-2DE3-4836-9A7B-D9D94B5BBAF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BB05442-2DE3-4836-9A7B-D9D94B5BBAF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -75,12 +47,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B6393868-5408-472D-BB33-1E473DBBA428} = {56E1C43E-FD9D-4C80-ABCD-9DC00FBBD9A1}
-		{BB04B399-3C23-4401-8D7D-E91BB287393C} = {B6393868-5408-472D-BB33-1E473DBBA428}
-		{8C3E1506-732D-4AE6-9A46-0B4FF778ABCB} = {BB04B399-3C23-4401-8D7D-E91BB287393C}
-		{0653EA4A-33BC-4F63-BF34-189BDE1F23D3} = {BB04B399-3C23-4401-8D7D-E91BB287393C}
-		{7595A399-0D5D-4CB5-B8A0-A87E4AA8DB95} = {B6393868-5408-472D-BB33-1E473DBBA428}
-		{5ED0246F-E3EC-4227-96C8-2553BB6F8C62} = {7595A399-0D5D-4CB5-B8A0-A87E4AA8DB95}
-		{13513699-66E8-4661-A3A2-77A26A46B824} = {7595A399-0D5D-4CB5-B8A0-A87E4AA8DB95}
 		{9282DF63-7915-4A78-BB44-E949AF2A9CFA} = {B6393868-5408-472D-BB33-1E473DBBA428}
 		{0BB05442-2DE3-4836-9A7B-D9D94B5BBAF7} = {9282DF63-7915-4A78-BB44-E949AF2A9CFA}
 		{115A128F-20C5-4911-AA05-30C2F5CCE2C6} = {9282DF63-7915-4A78-BB44-E949AF2A9CFA}
