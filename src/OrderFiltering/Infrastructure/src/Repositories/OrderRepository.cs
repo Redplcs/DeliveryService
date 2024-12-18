@@ -10,6 +10,11 @@ public class OrderRepository(ApplicationContext context) : IOrderRepository
 		context.Orders.Add(order);
 	}
 
+	public Order? Find(Guid id)
+	{
+		return context.Orders.FirstOrDefault(item => item.Id == id);
+	}
+
 	public IQueryable<Order> GetOrders()
 	{
 		return context.Orders;

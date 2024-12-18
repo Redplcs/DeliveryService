@@ -1,6 +1,7 @@
 using EffectiveMobile.DeliveryService.OrderFiltering.ApplicationCore.Interfaces;
 using EffectiveMobile.DeliveryService.OrderFiltering.Infrastructure;
 using EffectiveMobile.DeliveryService.OrderFiltering.Infrastructure.Repositories;
+using EffectiveMobile.DeliveryService.OrderFiltering.WebApi.Extensions;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,4 +18,5 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.MapCrudEndpoints();
 app.Run();
