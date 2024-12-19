@@ -1,12 +1,13 @@
 ﻿using EffectiveMobile.DeliveryService.OrderFiltering.ApplicationCore.Entities;
 using EffectiveMobile.DeliveryService.OrderFiltering.ApplicationCore.Interfaces;
+using EffectiveMobile.DeliveryService.OrderFiltering.ApplicationCore.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EffectiveMobile.DeliveryService.OrderFiltering.WebApi.Controllers;
 
 [ApiController]
 [Route("/api/orders")]
-public class OrderController(IOrderRepository repository) : ControllerBase
+public class OrderController(IOrderRepository repository, IOrderFilteringService service) : ControllerBase
 {
 	[HttpPost]
 	public IActionResult Create(Order order)
@@ -23,9 +24,43 @@ public class OrderController(IOrderRepository repository) : ControllerBase
 	}
 
 	[HttpGet]
-	public IActionResult Read()
+	public IActionResult Read(DateTimeOffset? startTime, DateTimeOffset? endTime, Guid? districtId)
 	{
+		if (startTime.HasValue && endTime.HasValue)
+		{
+			return GetOrdersByDeliveryTimeRange(startTime.Value, endTime.Value);
+		}
+		
+		if (districtId.HasValue)
+		{
+			return GetOrdersByDistrict(districtId.Value);
+		}
+
 		var orders = repository.GetOrders().ToList();
+
+		return Ok(orders);
+	}
+
+	private IActionResult GetOrdersByDeliveryTimeRange(DateTimeOffset startTime, DateTimeOffset endTime)
+	{
+		var orders = service.GetOrdersByDeliveryTimeRange(startTime, endTime);
+
+		if (!orders.Any())
+		{
+			return NoContent();
+		}
+
+		return Ok(orders);
+	}
+
+	private IActionResult GetOrdersByDistrict(Guid districtId)
+	{
+		var orders = service.GetOrdersByDistrict(districtId);
+
+		if (!orders.Any())
+		{
+			return NoContent();
+		}
 
 		return Ok(orders);
 	}
