@@ -1,0 +1,40 @@
+﻿@EffectiveMobile.DeliveryService.OrderFiltering.WebApi_HostAddress = https://localhost:7038
+
+POST {{EffectiveMobile.DeliveryService.OrderFiltering.WebApi_HostAddress}}/api/orders
+Content-Type: application/json
+
+{
+	"id": "415b6ec1-e665-4687-98ba-f289b0295e3d",
+	"weight": "25",
+	"deliveryDistrictId": "b26a3ad2-e33e-4c32-b36f-bc4f58ebd8ea",
+	"deliveryTime": "2019-07-26T00:00:00"
+}
+
+### Create new order
+
+GET {{EffectiveMobile.DeliveryService.OrderFiltering.WebApi_HostAddress}}/api/orders
+
+### Read all orders
+
+PUT {{EffectiveMobile.DeliveryService.OrderFiltering.WebApi_HostAddress}}/api/orders?id=415b6ec1-e665-4687-98ba-f289b0295e3d
+Content-Type: application/json
+
+{
+	"weight": "228",
+	"deliveryDistrictId": "b26a3ad2-e33e-4c32-b36f-bc4f58ebd8ea",
+	"deliveryTime": "2023-01-03T00:00:00"
+}
+
+### Update order
+
+DELETE {{EffectiveMobile.DeliveryService.OrderFiltering.WebApi_HostAddress}}/api/orders?id=415b6ec1-e665-4687-98ba-f289b0295e3d
+
+### Delete order
+
+GET {{EffectiveMobile.DeliveryService.OrderFiltering.WebApi_HostAddress}}/api/orders?startTime=2018-01-03T00:00:00&endTime=2022-01-03T00:00:00
+
+### GetOrdersByDeliveryTimeRange
+
+GET {{EffectiveMobile.DeliveryService.OrderFiltering.WebApi_HostAddress}}/api/orders?districtId=b26a3ad2-e33e-4c32-b36f-bc4f58ebd8ea
+
+### GetOrdersByDistrict

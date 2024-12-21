@@ -7,7 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Domain\src\EffectiveMobile.DeliveryService.OrderFiltering.Domain.csproj" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\ApplicationCore\src\EffectiveMobile.DeliveryService.OrderFiltering.ApplicationCore.csproj" />
   </ItemGroup>
 
 </Project>

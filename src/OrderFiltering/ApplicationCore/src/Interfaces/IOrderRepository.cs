@@ -5,8 +5,8 @@ namespace EffectiveMobile.DeliveryService.OrderFiltering.ApplicationCore.Interfa
 public interface IOrderRepository
 {
 	void Add(Order order);
-	Order GetOrder(Guid id);
-	IEnumerable<Order> GetOrders();
+	Order? Find(Guid id);
+	IQueryable<Order> GetOrders();
 	void Update(Order order);
 	void Remove(Order order);
 	void Save();
